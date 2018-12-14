@@ -1,6 +1,6 @@
 let cardsArray = [
-    { 'name': 'CSS', 'img': '/images/css3-logo.png?raw=true', },
-    { 'name': 'HTML', 'img': '/images/html5-logo.png?raw=true', },
+    { 'name': 'Angular', 'img': '/images/angular-logo.png?raw=true', },
+    { 'name': 'AWS', 'img': '/images/aws-logo.png?raw=true', },
     { 'name': 'Gatsby', 'img': '/images/gatsby-logo.png?raw=true', },
     { 'name': 'JS', 'img': '/images/js-logo.png?raw=true', },
     { 'name': 'Node', 'img': '/images/node-js-logo.png?raw=true', },
@@ -20,7 +20,6 @@ grid.setAttribute("class","grid");
 game.appendChild(grid);
 
 //loop through cardsArray and display each dev logo
-
 for(let i=0;i<cardsArray.length;i++){
 let card = document.createElement('div');
 card.classList.add('card');
