@@ -13,17 +13,35 @@ let cardsArray = [
     { 'name': 'GraphQL', 'img': '/images/graphql-logo.png?raw=true', },
 ];
 
+//duplicate the cards
+const gameGrid = cardsArray.concat(cardsArray);
+//randomize gameGrid on each page refresh
+gameGrid.sort(()=> 0.5 - Math.random());
+
 //create the game canvas : target main 'div' and create a 'section' tag
 const game = document.getElementById("board-game"); 
 const grid = document.createElement("section");
+let count  = 0;
+let cardGuess1 = '';
+let cardGuess2 = '';
 grid.setAttribute("class","grid");
 game.appendChild(grid);
 
 //loop through cardsArray and display each dev logo
-for(let i=0;i<cardsArray.length;i++){
-let card = document.createElement('div');
+for(let i=0;i<gameGrid.length;i++){
+const card = document.createElement('div');
 card.classList.add('card');
-card.dataset.name = cardsArray[i].name;
-card.style.backgroundImage = `url(${cardsArray[i].img})`;
+card.dataset.name = gameGrid[i].name;
+card.style.backgroundImage = `url(${gameGrid[i].img})`;
 grid.appendChild(card);
 }
+
+//add event listener to grid
+grid.addEventListener('click',(e)=>{
+const clicked = e.target;
+if(count < 2){
+count++;
+(clicked.nodeName === "DIV") ? clicked.classList.add('selected') : null;
+console.log(clicked.dataset.name);
+}
+});
