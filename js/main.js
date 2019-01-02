@@ -19,8 +19,8 @@ const gameGrid = cardsArray.concat(cardsArray);
 gameGrid.sort(()=> 0.5 - Math.random());
 
 //create the game canvas : target main 'div' and create a 'section' tag
-const game = document.getElementById("board-game"); 
-const grid = document.createElement("section");
+const game = document.getElementById("board-game"); //div
+const grid = document.createElement("section");//section
 let count  = 0;
 let cardGuess1 = '';
 let cardGuess2 = '';
@@ -45,3 +45,8 @@ count++;
 console.log(clicked.dataset.name);
 }
 });
+
+function checkCardMatch(){
+if(clicked.dataset.name)
+console.log('value: ' + clicked.dataset.name);   
+};
