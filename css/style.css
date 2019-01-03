@@ -19,21 +19,42 @@ body {
 
 .card {
     margin: 5px;
-    background-color:rgb(224, 229, 243);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
+    position: relative;
+    transition: all .4s linear;
+    transform-style: preserve-3d;
+}
+.card,
+.back,
+.front {
     height: 150px;
     width: 150px;
 }
-.selected {
-    border: 4px solid orangered;
+
+.back,
+.front {
+    position: absolute;
+    backface-visibility: hidden;
 }
 
-.match {
-    border: solid 4px white;
-    background-image: none !important;
-    
+.front {
+    z-index: 2;
+    background: rgb(250, 66, 66) no-repeat center center / contain;
+}
+
+.back {
+    transform: rotateY(180deg);
+    background-color: rgb(33, 34, 37);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.selected {
+    transform: rotateY(180deg);
+}
+
+.match .front {
+    background: rgb(5, 190, 45) !important;
 }
 
 
